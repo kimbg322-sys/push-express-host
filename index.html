@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="manifest" href="/manifest.json">
+	<title>ТОП Казино и БК Казахстана</title>
+	
+	<link type="image/x-icon" href="img/icon/fav.svg" rel="shortcut icon">
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400..900&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@400..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+	<header class="header">
+		<div class="wrapper">
+			<div class="header__container">
+				<div class="header__logo"><span>KZ</span>SLOTS</div>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section class="main__section">
+			<div class="wrapper">
+				<div class="main__header">
+					<h1 class="main__header_header">ТОП казино и БК Казахстана <br><span>С МОЩНЫМИ БОНУСАМИ</span></h1>
+					<div class="main__header_text"><p>Мы собрали лучшие бонусы от проверенных казино и букмекерских контор для игроков из Казахстана</p></div>
+				</div>
+					<div class="main__item">
+						<div class="header">
+							<img src="img/1xc.png" alt="icon">
+							<span>Казино</span>
+						</div>
+						<div class="img"><img src="img/13.png" alt=""></div>
+						<div class="content">
+							<p>150 фриспинов + бонусы до 750 000 тг</p>
+							<div class="link"><a href="/?_lp=1&offer_id=157" target="_blank">Зарегистрироваться</a></div>
+						</div>
+					</div>
+					<div class="main__item">
+						<div class="header">
+							<img src="img/1_logo.svg" alt="icon">
+							<span>Казино + Спорт</span>
+						</div>
+						<div class="img"><img src="img/5.png" alt=""></div>
+						<div class="content">
+							<p>+120% на первое пополнение</p>
+							<div class="link"><a href="/?_lp=1&offer_id=21" target="_blank">Зарегистрироваться</a></div>
+						</div>
+					</div>
+					<div class="main__item">
+						<div class="header">
+							<img src="img/logo_lex.svg" alt="icon">
+							<span>Казино + Спорт</span>
+						</div>
+						<div class="img"><img src="img/2.png" alt=""></div>
+						<div class="content">
+							<p>150% на первое пополнение до 180.000 тг</p>
+							<div class="link"><a href="/?_lp=1&offer_id=67" target="_blank">Зарегистрироваться</a></div>
+						</div>
+					</div>
+					<div class="main__item">
+						<div class="header">
+							<img src="img/slotica2.png" alt="icon">
+							<span>Казино + Спорт</span>
+						</div>
+						<div class="img"><img src="img/12.png" alt=""></div>
+						<div class="content">
+							<p>200% на первое пополнение + 100 FS 5 дней подряд</p>
+							<div class="link"><a href="/?_lp=1&offer_id=110" target="_blank">Зарегистрироваться</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	
+	<!-- Push Express -->
+<script src="https://sdk.push.express/js/v2.0.3/push-express-sdk.js"></script>
+
+<script>
+(async () => {
+  // Регистрируем Service Worker с внешнего домена
+  if ('serviceWorker' in navigator) {
+    try {
+      await navigator.serviceWorker.register(
+        'https://kimbg322-sys.github.io/push-express-host/push-express-sw.js', // 👈 можно заменить на свой домен, например https://push.partnrs.online/push-express-sw.js
+        { scope: '/' }
+      );
+      console.log('Service Worker зарегистрирован');
+    } catch (err) {
+      console.error('Ошибка регистрации SW:', err);
+    }
+  }
+
+  // Функция активации PushExpress
+  async function activatePush() {
+    try {
+      await initPushExpress({
+        appID: "43420-1432",
+        vapidKey: "BBA5Y97GeKczPTBCYy8VACkiuQNhLQQjWBQWUQY4g-91kP1dPA-ZwaFnVXqPs4Ij_xhPG67rOnDyibxI9bf_iUM",
+        tags: { segment: "site-users", webmaster: "main" }
+      });
+      console.log("PushExpress активирован!");
+    } catch (error) {
+      console.error("Ошибка при активации PushExpress:", error);
+    }
+  }
+
+  // Запрашиваем разрешение на уведомления
+  if (Notification.permission === "granted") {
+    await activatePush();
+  } else if (Notification.permission === "default") {
+    setTimeout(() => {
+      const request = async () => {
+        const newPermission = await Notification.requestPermission();
+        if (newPermission === "granted") {
+          await activatePush();
+        } else {
+          console.log("Пользователь отказался");
+        }
+        document.removeEventListener("scroll", request);
+        document.removeEventListener("click", request);
+      };
+      // ждём первое действие после 3 сек
+      document.addEventListener("scroll", request, { once: true });
+      document.addEventListener("click", request, { once: true });
+    }, 3000);
+  } else {
+    console.log("Пользователь ранее запретил уведомления");
+  }
+})();
+</script>
+
+
+	
+</body>
+</html>
