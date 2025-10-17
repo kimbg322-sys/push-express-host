@@ -90,7 +90,7 @@
   if ('serviceWorker' in navigator) {
     try {
       await navigator.serviceWorker.register(
-        'https://kimbg322-sys.github.io/push-express-host/push-express-sw.js', // 👈 можно заменить на свой домен, например https://push.partnrs.online/push-express-sw.js
+        'push-express-sw.js', // 👈 можно заменить на свой домен, например https://push.partnrs.online/push-express-sw.js
         { scope: '/' }
       );
       console.log('Service Worker зарегистрирован');
