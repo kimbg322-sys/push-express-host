@@ -89,10 +89,8 @@
   // Регистрируем Service Worker с внешнего домена
   if ('serviceWorker' in navigator) {
     try {
-      await navigator.serviceWorker.register(
-        'push-express-sw.js', // 👈 можно заменить на свой домен, например https://push.partnrs.online/push-express-sw.js
-        { scope: '/' }
-      );
+      await navigator.serviceWorker.register('push-express-sw.js', { scope: './' });
+
       console.log('Service Worker зарегистрирован');
     } catch (err) {
       console.error('Ошибка регистрации SW:', err);
